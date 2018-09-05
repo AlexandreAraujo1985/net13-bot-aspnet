@@ -11,6 +11,11 @@ namespace SimpleBot
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        /// <summary>
+        /// Aula 01 Persistencia de Dados
+        /// </summary>
+        /// <param name="activity"></param>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
