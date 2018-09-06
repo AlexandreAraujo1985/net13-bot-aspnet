@@ -19,7 +19,7 @@ namespace SimpleBot
         [ResponseType(typeof(void))]
         public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
-            if ( activity != null && activity.Type == ActivityTypes.Message)
+            if (activity != null && activity.Type == ActivityTypes.Message)
             {
                 await HandleActivityAsync(activity);
             }
@@ -38,6 +38,8 @@ namespace SimpleBot
             var message = new Message(userFromId, userFromName, text);
 
             string response = SimpleBotUser.Reply(message);
+
+            SimpleBotUser.GetProfile(message.Id.ToString());
 
             await ReplyUserAsync(activity, response);
         }
